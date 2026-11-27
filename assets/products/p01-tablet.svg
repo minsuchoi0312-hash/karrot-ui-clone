@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef1f6"/><stop offset="1" stop-color="#e1e6ee"/></linearGradient>
+    <linearGradient id="desk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dcb88f"/><stop offset="1" stop-color="#c49b6e"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a4e57"/><stop offset="1" stop-color="#2b2e34"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6d7dff"/><stop offset=".55" stop-color="#b47cf0"/><stop offset="1" stop-color="#ff9d86"/></linearGradient>
+    <radialGradient id="shine" cx=".25" cy=".15" r=".9"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="8"/></filter>
+  </defs>
+  <rect width="400" height="400" fill="url(#wall)"/>
+  <rect y="282" width="400" height="118" fill="url(#desk)"/>
+  <path d="M0 282h400" stroke="#b78b5d" stroke-width="2"/>
+  <path d="M0 330h400M0 372h400" stroke="#b98f63" stroke-opacity=".25" stroke-width="1.5"/>
+  <ellipse cx="206" cy="318" rx="132" ry="12" fill="#3b2a18" opacity=".28" filter="url(#soft)"/>
+  <g transform="rotate(-6 200 200)">
+    <rect x="86" y="88" width="234" height="222" rx="20" fill="url(#body)"/>
+    <rect x="88" y="90" width="230" height="218" rx="18" fill="none" stroke="#6b7078" stroke-width="1.5"/>
+    <rect x="98" y="100" width="210" height="198" rx="10" fill="url(#screen)"/>
+    <path d="M98 214c38-30 82 26 128-6s58-24 82-14v94a10 10 0 0 1-10 10H108a10 10 0 0 1-10-10z" fill="#fff" opacity=".16"/>
+    <path d="M98 250c46-22 92 24 140-2 30-16 52-14 70-6v46a10 10 0 0 1-10 10H108a10 10 0 0 1-10-10z" fill="#fff" opacity=".14"/>
+    <text x="203" y="160" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="40" font-weight="300" fill="#fff" opacity=".95">9:41</text>
+    <text x="203" y="182" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="11" fill="#fff" opacity=".8">11월 27일 목요일</text>
+    <rect x="98" y="100" width="210" height="198" rx="10" fill="url(#shine)"/>
+    <circle cx="203" cy="95" r="2.2" fill="#15171b"/>
+  </g>
+</svg>

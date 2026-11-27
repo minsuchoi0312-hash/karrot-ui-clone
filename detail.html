@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="순수 HTML·CSS로 만든 당근 앱 UI 클론 — 상품 상세">
+  <title>아이패드 에어 5세대 64GB 스페이스 그레이 풀박스 | Karrot UI Clone</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<!-- ═══ Icon sprite ═══════════════════════════════════════════════════ -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.3"/><path d="M15.6 15.6 20 20"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6.5h16M4 12h16M4 17.5h16"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6.2 10.4a5.8 5.8 0 0 1 11.6 0v4.2l1.6 2.4H4.6l1.6-2.4z"/><path d="M9.8 19.6a2.4 2.4 0 0 0 4.4 0"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m7 9.5 5 5 5-5"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.6 4.5L19 7.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.6-5.7-6.6-11.1a6.6 6.6 0 0 1 13.2 0C18.6 15.3 12 21 12 21z"/><circle cx="12" cy="9.9" r="2.4"/></symbol>
+  <symbol id="i-chat-sm" viewBox="0 0 24 24"><path d="M12 4.5c4.7 0 8.5 3 8.5 6.8S16.7 18 12 18c-.9 0-1.8-.1-2.6-.3L5 19.8l1.1-3.4c-1.6-1.2-2.6-3-2.6-5.1 0-3.8 3.8-6.8 8.5-6.8z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.2 10.9 19.2C6.4 15.2 3.5 12.6 3.5 9.3c0-2.7 2.1-4.8 4.8-4.8 1.5 0 3 .7 3.7 1.8.7-1.1 2.2-1.8 3.7-1.8 2.7 0 4.8 2.1 4.8 4.8 0 3.3-2.9 5.9-7.4 9.9z"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.8 12.6V5.3c0-.8.7-1.5 1.5-1.5h7.3l7.6 7.6c.6.6.6 1.5 0 2.1l-7.2 7.2c-.6.6-1.5.6-2.1 0z"/><circle cx="8.4" cy="8.4" r="1.4"/></symbol>
+  <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M4 10v4c0 .6.4 1 1 1h2l9 4.5V5.5L7 10H5c-.6 0-1 .4-1 1z"/><path d="M19 9.5a3.5 3.5 0 0 1 0 5M8 15l1 4.5"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3.5" y="7" width="17" height="12.5" rx="2"/><path d="M9 7V5.6c0-.6.5-1.1 1.1-1.1h3.8c.6 0 1.1.5 1.1 1.1V7M3.5 12.5h17"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><path d="M4.5 20.5V5c0-.8.7-1.5 1.5-1.5h7c.8 0 1.5.7 1.5 1.5v15.5M14.5 9.5H18c.8 0 1.5.7 1.5 1.5v9.5M3 20.5h18M8 7.5h3M8 11h3M8 14.5h3"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 16.5v2M19 16.5v2M3.5 16.5v-4l2-5.2c.3-.8 1-1.3 1.9-1.3h9.2c.9 0 1.6.5 1.9 1.3l2 5.2v4z"/><path d="M3.5 12.5h17"/><circle cx="7.5" cy="14.5" r=".6"/><circle cx="16.5" cy="14.5" r=".6"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3.5c.6 4.2 2.3 5.9 6.5 6.5-4.2.6-5.9 2.3-6.5 6.5-.6-4.2-2.3-5.9-6.5-6.5 4.2-.6 5.9-2.3 6.5-6.5zM18.5 15.5c.3 1.6.9 2.2 2.5 2.5-1.6.3-2.2.9-2.5 2.5-.3-1.6-.9-2.2-2.5-2.5 1.6-.3 2.2-.9 2.5-2.5z"/></symbol>
+  <!-- tab bar (outline; fill: currentColor when active, --detail punches inner lines) -->
+  <symbol id="t-home" viewBox="0 0 24 24"><path d="M3.8 10.3 12 3.8l8.2 6.5v8.9c0 .7-.6 1.3-1.3 1.3H5.1c-.7 0-1.3-.6-1.3-1.3z"/><path d="M9.6 20.5v-5.2h4.8v5.2" style="stroke:var(--detail,currentColor);fill:none"/></symbol>
+  <symbol id="t-town" viewBox="0 0 24 24"><rect x="4" y="3.8" width="16" height="16.6" rx="2.6"/><path d="M8 8.8h8M8 12.3h8M8 15.8h4.6" style="stroke:var(--detail,currentColor);fill:none"/></symbol>
+  <symbol id="t-near" viewBox="0 0 24 24"><path d="M12 21s-6.6-5.7-6.6-11.1a6.6 6.6 0 0 1 13.2 0C18.6 15.3 12 21 12 21z"/><circle cx="12" cy="9.9" r="2.3" style="stroke:var(--detail,currentColor);fill:var(--detail,none)"/></symbol>
+  <symbol id="t-chat" viewBox="0 0 24 24"><path d="M12 4.2c4.7 0 8.5 3 8.5 6.9 0 3.8-3.8 6.9-8.5 6.9-.9 0-1.8-.1-2.6-.3l-4.6 2.3 1.2-3.6c-1.6-1.3-2.5-3.1-2.5-5.2 0-3.9 3.8-7 8.5-7z"/><path d="M8.4 11.2h.01M12 11.2h.01M15.6 11.2h.01" style="stroke:var(--detail,currentColor);stroke-width:2.4"/></symbol>
+  <symbol id="t-my" viewBox="0 0 24 24"><circle cx="12" cy="8.2" r="4"/><path d="M4.6 20.4c.7-3.9 3.7-6.2 7.4-6.2s6.7 2.3 7.4 6.2z"/></symbol>
+  <!-- misc -->
+  <symbol id="i-avatar" viewBox="0 0 24 24"><circle cx="12" cy="9.6" r="4.4"/><path d="M2.8 24c.6-5.2 4.3-8.6 9.2-8.6s8.6 3.4 9.2 8.6z"/></symbol>
+  <symbol id="i-carrot" viewBox="0 0 48 48"><path d="M22.6 14.2c3.4-2.9 9.4-2.6 12 .9 2.6 3.4 1.9 8.2-1.3 10.8L14.4 39c-2.6 1.8-5.8-1-4.4-3.8z" fill="#ff6600"/><path d="M17.6 25.4l3 2.1M14.4 30.6l2.6 1.8M22.2 19.6l2.8 2" stroke="#e14d00" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M32.4 14.6c.8-4.6 3.6-7.4 8.2-7.6-.6 4.8-3.6 7.4-8.2 7.6z" fill="#2fb36b"/><path d="M33 15.4c3.8-1.8 7.6-1.4 10 1.4-3.6 1.8-7.4 1.6-10-1.4z" fill="#1e9e5a"/><path d="M31.6 14.4c-1.6-3.6-.8-7.2 2.2-9.4 1.4 3.6.6 7.2-2.2 9.4z" fill="#3cc47a"/></symbol>
+  <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m14.5 5-7 7 7 7"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 14.5V3.8M8.2 7.4 12 3.6l3.8 3.8"/><path d="M8.5 10.5H7a1.5 1.5 0 0 0-1.5 1.5v7A1.5 1.5 0 0 0 7 20.5h10a1.5 1.5 0 0 0 1.5-1.5v-7a1.5 1.5 0 0 0-1.5-1.5h-1.5"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><circle cx="12" cy="5.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="18.5" r="1.5" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5.5 21V4.5M5.5 4.8c4.5-2.4 8 2.4 13 0v9c-5 2.4-8.5-2.4-13 0"/></symbol>
+  <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3.5 12S6.6 6 12 6s8.5 6 8.5 6-3.1 6-8.5 6-8.5-6-8.5-6z"/><circle cx="12" cy="12" r="2.6"/><path d="M4.5 4.5l15 15"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10.2 13.8a3.6 3.6 0 0 0 5.1 0l3.2-3.2a3.6 3.6 0 0 0-5.1-5.1l-1.3 1.3"/><path d="M13.8 10.2a3.6 3.6 0 0 0-5.1 0l-3.2 3.2a3.6 3.6 0 0 0 5.1 5.1l1.3-1.3"/></symbol>
+  <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8.6 14a4 4 0 0 0 6.8 0"/><path d="M9.2 9.8h.01M14.8 9.8h.01" stroke-width="2.6"/></symbol>
+  <symbol id="i-comment" viewBox="0 0 24 24"><path d="M5.5 5h13A1.5 1.5 0 0 1 20 6.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17A1.5 1.5 0 0 1 4 15.5v-9A1.5 1.5 0 0 1 5.5 5z"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M4 20l1-4.5L15.8 4.7a1.8 1.8 0 0 1 2.5 0l1 1a1.8 1.8 0 0 1 0 2.5L8.5 19z"/><path d="M13.6 6.9l3.5 3.5"/></symbol>
+  <symbol id="i-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.6a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.1-2.4 3.6M12 17h.01"/></symbol>
+  <symbol id="i-bowl" viewBox="0 0 24 24"><path d="M3.5 11.5h17a8.5 8.5 0 0 1-17 0zM8 7.5c0-1.5 1-1.5 1-3M12 7.5c0-1.5 1-1.5 1-3M16 7.5c0-1.5 1-1.5 1-3"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2.5v2.5H14zM17.5 17.5H20V20h-2.5zM14 19.5h1M19.5 14v1"/></symbol>
+  <symbol id="i-detail" viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M4 12.5h16M8 16h5"/></symbol>
+</svg>
+
+<div class="stage">
+
+  <!-- ═══ Desktop intro card ═════════════════════════════════════════ -->
+  <aside class="intro" aria-label="프로젝트 안내">
+    <div class="intro__card">
+      <div class="intro__brand">
+        <svg class="intro__logo" aria-hidden="true"><use href="#i-carrot"/></svg>
+        <div>
+          <p class="intro__eyebrow">Pure HTML &amp; CSS</p>
+          <h1 class="intro__title">당근 앱 UI 클론</h1>
+        </div>
+      </div>
+      <p class="intro__desc">JavaScript 없이 HTML과 CSS만으로 만든 모바일 앱 UI예요. 오른쪽 화면을 직접 스크롤하고 눌러 보세요.</p>
+      <ul class="intro__stats">
+        <li><strong>0</strong><span>JavaScript</span></li>
+        <li><strong>4</strong><span>화면</span></li>
+        <li><strong>0</strong><span>외부 이미지</span></li>
+      </ul>
+
+      <h2 class="intro__heading">화면</h2>
+      <nav class="intro__nav">
+        <a class="intro__link" href="index.html">
+          <span class="intro__link-icon"><svg class="icon icon--20"><use href="#t-home"/></svg></span>
+          <span class="intro__link-text"><strong>홈 피드</strong><span>동네 선택 · 카테고리 필터 · 글쓰기 메뉴</span></span>
+          <svg class="icon icon--20"><use href="#i-chevron-right"/></svg>
+        </a>
+        <a class="intro__link" href="detail.html" aria-current="page">
+          <span class="intro__link-icon"><svg class="icon icon--20"><use href="#i-detail"/></svg></span>
+          <span class="intro__link-text"><strong>상품 상세</strong><span>스와이프 캐러셀 · 매너온도 · 찜 하트</span></span>
+          <svg class="icon icon--20"><use href="#i-chevron-right"/></svg>
+        </a>
+        <a class="intro__link" href="chat.html">
+          <span class="intro__link-icon"><svg class="icon icon--20"><use href="#t-chat"/></svg></span>
+          <span class="intro__link-text"><strong>채팅</strong><span>판매·구매·안 읽음 필터 · 배너 닫기</span></span>
+          <svg class="icon icon--20"><use href="#i-chevron-right"/></svg>
+        </a>
+        <a class="intro__link" href="neighborhood.html">
+          <span class="intro__link-icon"><svg class="icon icon--20"><use href="#t-town"/></svg></span>
+          <span class="intro__link-text"><strong>동네생활</strong><span>주제 필터 · 공감 토글</span></span>
+          <svg class="icon icon--20"><use href="#i-chevron-right"/></svg>
+        </a>
+      </nav>
+
+      <h2 class="intro__heading">순수 CSS 인터랙션</h2>
+      <ul class="intro__tags">
+        <li><code>:checked</code> 동네 팝오버</li>
+        <li><code>radio</code> 필터 칩</li>
+        <li><code>:has()</code> 글쓰기 메뉴</li>
+        <li><code>scroll-snap</code> 캐러셀</li>
+        <li><code>scroll-timeline</code> 헤더</li>
+        <li><code>@keyframes</code> 하트 팝</li>
+        <li><code>&lt;details&gt;</code> 매너온도</li>
+        <li><code>checkbox</code> 토스트</li>
+      </ul>
+
+      <p class="intro__note">학습용 비공식 클론이에요. 당근(Daangn)과 무관하며 상업적으로 쓰지 않아요. 색·간격·반경 토큰은 SEED Design(Apache-2.0)을 참고했어요.</p>
+    </div>
+  </aside>
+
+  <!-- ═══ Device ═════════════════════════════════════════════════════ -->
+  <div class="device">
+    <div class="device__screen device__screen--immersive">
+      <div class="device__island" aria-hidden="true"></div>
+      <div class="statusbar statusbar--overlay" aria-hidden="true">
+        <span>9:41</span>
+        <span class="statusbar__icons">
+          <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+          <svg viewBox="0 0 16 12"><path d="M8 2.3c2.4 0 4.6.9 6.3 2.5l1.2-1.3A10.6 10.6 0 0 0 8 .5 10.6 10.6 0 0 0 .5 3.5l1.2 1.3A9 9 0 0 1 8 2.3zm0 3.6c1.4 0 2.7.5 3.7 1.4l1.2-1.3A7.2 7.2 0 0 0 8 4.1a7.2 7.2 0 0 0-4.9 1.9l1.2 1.3C5.3 6.4 6.6 5.9 8 5.9zm0 3.5c.5 0 1 .2 1.3.5L8 11.3 6.7 9.9c.3-.3.8-.5 1.3-.5z"/></svg>
+          <svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="20" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" opacity=".4"/></svg>
+        </span>
+      </div>
+
+      <div class="app app--detail">
+
+        <!-- Transparent overlay header (turns solid on scroll) -->
+        <header class="detail-nav">
+          <a class="icon-btn" href="index.html" aria-label="뒤로가기"><svg class="icon"><use href="#i-chevron-left"/></svg></a>
+          <a class="icon-btn" href="index.html" aria-label="홈으로"><svg class="icon"><use href="#t-home"/></svg></a>
+          <span class="detail-nav__title">아이패드 에어 5세대 64GB</span>
+          <label class="icon-btn" for="toast-share" aria-label="공유하기"><svg class="icon"><use href="#i-share"/></svg></label>
+          <label class="icon-btn" for="sheet-more" aria-label="더보기"><svg class="icon"><use href="#i-more"/></svg></label>
+        </header>
+
+        <div class="app__scroll detail-scroll">
+
+          <!-- Gallery: scroll-snap carousel -->
+          <section class="gallery" aria-label="상품 사진 3장">
+            <div class="gallery__track">
+              <figure class="gallery__slide" id="slide-1"><img src="assets/products/p01-tablet.svg" alt="아이패드 에어 전면, 화면이 켜진 모습" width="390" height="390"></figure>
+              <figure class="gallery__slide" id="slide-2"><img src="assets/products/p01-tablet-back.svg" alt="아이패드 에어 후면, 흠집 없는 모습" width="390" height="390"></figure>
+              <figure class="gallery__slide" id="slide-3"><img src="assets/products/p01-tablet-box.svg" alt="박스와 정품 충전기 구성품" width="390" height="390"></figure>
+            </div>
+            <nav class="gallery__dots" aria-label="사진 선택">
+              <a class="gallery__dot" href="#slide-1" aria-label="1번 사진"></a>
+              <a class="gallery__dot" href="#slide-2" aria-label="2번 사진"></a>
+              <a class="gallery__dot" href="#slide-3" aria-label="3번 사진"></a>
+              <span class="gallery__dot-active" aria-hidden="true"></span>
+            </nav>
+          </section>
+
+          <!-- Seller -->
+          <section class="seller" aria-label="판매자 정보">
+            <span class="avatar avatar--48 avatar--carrot"><svg aria-hidden="true"><use href="#i-avatar"/></svg></span>
+            <div class="seller__info">
+              <strong class="seller__name">역삼동고양이</strong>
+              <span class="seller__loc">역삼동</span>
+            </div>
+            <details class="manner manner--l5">
+              <summary class="manner__summary" aria-label="매너온도 42.8도">
+                <span class="manner__value">42.8℃</span>
+                <span class="manner__gauge"><span class="manner__fill" style="--temp: 42.8"></span></span>
+                <span class="manner__face" aria-hidden="true">😊</span>
+                <span class="manner__label">매너온도</span>
+              </summary>
+              <p class="manner__tip">매너온도는 이웃들의 칭찬·후기·비매너 평가를 모아 만든 지표예요. 처음엔 <strong>36.5℃</strong>에서 시작해요.</p>
+            </details>
+          </section>
+
+          <hr class="divider">
+
+          <!-- Article -->
+          <article class="article">
+            <h1 class="article__title">아이패드 에어 5세대 64GB 스페이스 그레이 풀박스</h1>
+            <p class="article__meta"><a class="article__cat" href="index.html">디지털기기</a> · 끌올 3분 전</p>
+            <div class="article__body">작년 10월에 구매해서 집에서 넷플릭스랑 필기용으로만 썼어요.
+항상 케이스 끼우고 필름 붙여서 써서 흠집 없이 깨끗합니다.
+배터리 성능 최대치 96%예요.
+
+구성품: 본체, 박스, 정품 충전기(미사용)
+애플펜슬은 포함되지 않아요!
+
+역삼역 2번 출구 근처에서 직거래 원해요.
+네고는 어렵습니다 🙏</div>
+            <p class="article__stats">채팅 3 · 관심 <span class="like-count" data-like="off">12</span><span class="like-count" data-like="on">13</span> · 조회 248</p>
+          </article>
+
+          <label class="row-link" for="sheet-more">이 게시글 신고하기<svg class="icon icon--20"><use href="#i-chevron-right"/></svg></label>
+
+          <div class="divider divider--thick"></div>
+
+          <!-- Seller's other items -->
+          <section aria-labelledby="more-from-seller">
+            <div class="section-head">
+              <h2 class="section-head__title" id="more-from-seller">역삼동고양이님의 판매 물품</h2>
+              <label class="section-head__more" for="toast-demo">모두 보기<svg class="icon icon--16"><use href="#i-chevron-right"/></svg></label>
+            </div>
+            <div class="grid">
+              <label class="grid-item" for="toast-demo">
+                <span class="grid-item__thumb"><img src="assets/products/p10-kettle.svg" alt="" width="180" height="135"></span>
+                <span class="grid-item__title">무선 전기포트 1.7L 새상품 (선물 받았어요)</span>
+                <span class="grid-item__price">18,000원</span>
+              </label>
+              <label class="grid-item" for="toast-demo">
+                <span class="grid-item__thumb"><img src="assets/products/p08-lamp.svg" alt="" width="180" height="135"></span>
+                <span class="grid-item__title">LED 스탠드 조명 나눔합니다</span>
+                <span class="grid-item__price">나눔 🧡</span>
+              </label>
+              <label class="grid-item" for="toast-demo">
+                <span class="grid-item__thumb"><img src="assets/products/p09-shoes.svg" alt="" width="180" height="135"></span>
+                <span class="grid-item__title">러닝화 270 한 번 신었어요</span>
+                <span class="grid-item__price">69,000원</span>
+              </label>
+              <label class="grid-item" for="toast-demo">
+                <span class="grid-item__thumb"><img src="assets/products/p03-earbuds.svg" alt="" width="180" height="135"></span>
+                <span class="grid-item__title">에어팟 프로 2세대 C타입 미개봉</span>
+                <span class="grid-item__price">239,000원</span>
+              </label>
+            </div>
+          </section>
+
+          <section aria-labelledby="also-viewed">
+            <div class="section-head">
+              <h2 class="section-head__title" id="also-viewed">이 글과 함께 봤어요</h2>
+            </div>
+            <div class="grid">
+              <label class="grid-item" for="toast-demo">
+                <span class="grid-item__thumb"><img src="assets/products/p07-console.svg" alt="" width="180" height="135"></span>
+                <span class="grid-item__title">휴대용 게임기 OLED 화이트 + 타이틀 3개</span>
+                <span class="grid-item__price">310,000원</span>
+              </label>
+              <label class="grid-item" for="toast-demo">
+                <span class="grid-item__thumb"><img src="assets/products/p05-bike.svg" alt="" width="180" height="135"></span>
+                <span class="grid-item__title">하이브리드 자전거 26인치 21단</span>
+                <span class="grid-item__price">230,000원</span>
+              </label>
+              <label class="grid-item" for="toast-demo">
+                <span class="grid-item__thumb"><img src="assets/products/p06-camping.svg" alt="" width="180" height="135"></span>
+                <span class="grid-item__title">캠핑 릴렉스 체어 2개 일괄</span>
+                <span class="grid-item__price">45,000원</span>
+              </label>
+              <label class="grid-item" for="toast-demo">
+                <span class="grid-item__thumb"><img src="assets/products/p02-table.svg" alt="" width="180" height="135"></span>
+                <span class="grid-item__title">원목 4인 식탁 세트 (의자 2개 포함)</span>
+                <span class="grid-item__price">150,000원</span>
+              </label>
+            </div>
+          </section>
+          <div class="detail-end"></div>
+        </div>
+
+        <!-- Bottom action bar -->
+        <div class="action-bar">
+          <label class="heart" aria-label="관심 상품 등록">
+            <input type="checkbox" class="sr-only heart__input">
+            <svg class="icon heart__icon heart__icon--line" aria-hidden="true"><use href="#i-heart"/></svg>
+            <svg class="icon heart__icon heart__icon--fill" aria-hidden="true"><use href="#i-heart"/></svg>
+            <span class="heart__burst" aria-hidden="true"></span>
+          </label>
+          <span class="action-bar__divider" aria-hidden="true"></span>
+          <div class="action-bar__price">
+            <strong>520,000원</strong>
+            <span class="action-bar__nego">가격 제안 불가</span>
+          </div>
+          <a class="btn btn--brand btn--lg" href="chat.html">채팅하기</a>
+        </div>
+
+        <!-- Feedback toasts -->
+        <div class="toast toast--like" role="status"><svg class="icon icon--20"><use href="#i-heart"/></svg>관심목록에 추가했어요</div>
+        <input type="checkbox" id="toast-share" class="sr-only toast-trigger" tabindex="-1">
+        <div class="toast" role="status"><svg class="icon icon--20"><use href="#i-link"/></svg>게시글 링크를 복사했어요</div>
+        <input type="checkbox" id="toast-demo" class="sr-only toast-trigger" tabindex="-1">
+        <div class="toast" role="status"><svg class="icon icon--20"><use href="#i-info"/></svg>데모에서는 이 매물만 상세 화면이 있어요</div>
+        <input type="checkbox" id="toast-report" class="sr-only toast-trigger" tabindex="-1">
+        <div class="toast" role="status"><svg class="icon icon--20"><use href="#i-check"/></svg>신고가 접수됐어요. 검토 후 알려드릴게요</div>
+
+        <!-- More: menu sheet -->
+        <input type="checkbox" id="sheet-more" class="sr-only sheet-trigger">
+        <label class="backdrop" for="sheet-more" aria-label="닫기"></label>
+        <div class="sheet" role="dialog" aria-label="게시글 메뉴">
+          <div class="sheet__handle" aria-hidden="true"></div>
+          <div class="sheet__group">
+            <label class="sheet__item" for="toast-share"><svg class="icon"><use href="#i-link"/></svg>링크 복사</label>
+            <label class="sheet__item" for="toast-demo"><svg class="icon"><use href="#i-eye-off"/></svg>이 사용자의 글 보지 않기</label>
+          </div>
+          <div class="sheet__group">
+            <label class="sheet__item sheet__item--critical" for="toast-report"><svg class="icon"><use href="#i-flag"/></svg>신고하기</label>
+          </div>
+          <label class="btn btn--neutral btn--lg btn--block sheet__close" for="sheet-more">닫기</label>
+        </div>
+      </div>
+
+      <div class="device__home" aria-hidden="true"></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

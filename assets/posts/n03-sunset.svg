@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b5fb8"/><stop offset=".45" stop-color="#e98aa0"/><stop offset=".75" stop-color="#ffb46b"/><stop offset="1" stop-color="#ffd59a"/></linearGradient>
+    <radialGradient id="sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff4cf"/><stop offset=".6" stop-color="#ffd27a"/><stop offset="1" stop-color="#ffb35c" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#sky)"/>
+  <circle cx="230" cy="250" r="90" fill="url(#sun)"/>
+  <circle cx="230" cy="250" r="34" fill="#fff1c8"/>
+  <g fill="#ffffff" opacity=".35"><ellipse cx="90" cy="110" rx="70" ry="10"/><ellipse cx="300" cy="80" rx="90" ry="9"/><ellipse cx="160" cy="170" rx="60" ry="7"/></g>
+  <!-- skyline -->
+  <path d="M0 290h30v-50h30v30h20v-80h34v100h20v-60h28v60h24v-110h40v110h18v-40h30v40h22v-70h30v70h24v-30h30v30h20v110H0z" fill="#3a2f55"/>
+  <g fill="#ffd77f" opacity=".85">
+    <rect x="88" y="214" width="6" height="8"/><rect x="100" y="230" width="6" height="8"/><rect x="236" y="200" width="6" height="8"/><rect x="250" y="216" width="6" height="8"/><rect x="236" y="236" width="6" height="8"/><rect x="330" y="240" width="6" height="8"/>
+  </g>
+  <!-- park trees -->
+  <path d="M0 330c40-26 80-26 120-6s90 20 140 0 100-16 140 2v74H0z" fill="#263d2e"/>
+  <g fill="#2f4d38"><circle cx="40" cy="320" r="26"/><circle cx="90" cy="326" r="20"/><circle cx="330" cy="318" r="28"/><circle cx="372" cy="328" r="20"/></g>
+</svg>

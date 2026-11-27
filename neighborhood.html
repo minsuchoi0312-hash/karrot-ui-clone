@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="순수 HTML·CSS로 만든 당근 앱 UI 클론 — 동네생활">
+  <title>동네생활 · 역삼동 | Karrot UI Clone</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<!-- ═══ Icon sprite ═══════════════════════════════════════════════════ -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.3"/><path d="M15.6 15.6 20 20"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6.5h16M4 12h16M4 17.5h16"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6.2 10.4a5.8 5.8 0 0 1 11.6 0v4.2l1.6 2.4H4.6l1.6-2.4z"/><path d="M9.8 19.6a2.4 2.4 0 0 0 4.4 0"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m7 9.5 5 5 5-5"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.6 4.5L19 7.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.6-5.7-6.6-11.1a6.6 6.6 0 0 1 13.2 0C18.6 15.3 12 21 12 21z"/><circle cx="12" cy="9.9" r="2.4"/></symbol>
+  <symbol id="i-chat-sm" viewBox="0 0 24 24"><path d="M12 4.5c4.7 0 8.5 3 8.5 6.8S16.7 18 12 18c-.9 0-1.8-.1-2.6-.3L5 19.8l1.1-3.4c-1.6-1.2-2.6-3-2.6-5.1 0-3.8 3.8-6.8 8.5-6.8z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.2 10.9 19.2C6.4 15.2 3.5 12.6 3.5 9.3c0-2.7 2.1-4.8 4.8-4.8 1.5 0 3 .7 3.7 1.8.7-1.1 2.2-1.8 3.7-1.8 2.7 0 4.8 2.1 4.8 4.8 0 3.3-2.9 5.9-7.4 9.9z"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.8 12.6V5.3c0-.8.7-1.5 1.5-1.5h7.3l7.6 7.6c.6.6.6 1.5 0 2.1l-7.2 7.2c-.6.6-1.5.6-2.1 0z"/><circle cx="8.4" cy="8.4" r="1.4"/></symbol>
+  <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M4 10v4c0 .6.4 1 1 1h2l9 4.5V5.5L7 10H5c-.6 0-1 .4-1 1z"/><path d="M19 9.5a3.5 3.5 0 0 1 0 5M8 15l1 4.5"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3.5" y="7" width="17" height="12.5" rx="2"/><path d="M9 7V5.6c0-.6.5-1.1 1.1-1.1h3.8c.6 0 1.1.5 1.1 1.1V7M3.5 12.5h17"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><path d="M4.5 20.5V5c0-.8.7-1.5 1.5-1.5h7c.8 0 1.5.7 1.5 1.5v15.5M14.5 9.5H18c.8 0 1.5.7 1.5 1.5v9.5M3 20.5h18M8 7.5h3M8 11h3M8 14.5h3"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 16.5v2M19 16.5v2M3.5 16.5v-4l2-5.2c.3-.8 1-1.3 1.9-1.3h9.2c.9 0 1.6.5 1.9 1.3l2 5.2v4z"/><path d="M3.5 12.5h17"/><circle cx="7.5" cy="14.5" r=".6"/><circle cx="16.5" cy="14.5" r=".6"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3.5c.6 4.2 2.3 5.9 6.5 6.5-4.2.6-5.9 2.3-6.5 6.5-.6-4.2-2.3-5.9-6.5-6.5 4.2-.6 5.9-2.3 6.5-6.5zM18.5 15.5c.3 1.6.9 2.2 2.5 2.5-1.6.3-2.2.9-2.5 2.5-.3-1.6-.9-2.2-2.5-2.5 1.6-.3 2.2-.9 2.5-2.5z"/></symbol>
+  <!-- tab bar (outline; fill: currentColor when active, --detail punches inner lines) -->
+  <symbol id="t-home" viewBox="0 0 24 24"><path d="M3.8 10.3 12 3.8l8.2 6.5v8.9c0 .7-.6 1.3-1.3 1.3H5.1c-.7 0-1.3-.6-1.3-1.3z"/><path d="M9.6 20.5v-5.2h4.8v5.2" style="stroke:var(--detail,currentColor);fill:none"/></symbol>
+  <symbol id="t-town" viewBox="0 0 24 24"><rect x="4" y="3.8" width="16" height="16.6" rx="2.6"/><path d="M8 8.8h8M8 12.3h8M8 15.8h4.6" style="stroke:var(--detail,currentColor);fill:none"/></symbol>
+  <symbol id="t-near" viewBox="0 0 24 24"><path d="M12 21s-6.6-5.7-6.6-11.1a6.6 6.6 0 0 1 13.2 0C18.6 15.3 12 21 12 21z"/><circle cx="12" cy="9.9" r="2.3" style="stroke:var(--detail,currentColor);fill:var(--detail,none)"/></symbol>
+  <symbol id="t-chat" viewBox="0 0 24 24"><path d="M12 4.2c4.7 0 8.5 3 8.5 6.9 0 3.8-3.8 6.9-8.5 6.9-.9 0-1.8-.1-2.6-.3l-4.6 2.3 1.2-3.6c-1.6-1.3-2.5-3.1-2.5-5.2 0-3.9 3.8-7 8.5-7z"/><path d="M8.4 11.2h.01M12 11.2h.01M15.6 11.2h.01" style="stroke:var(--detail,currentColor);stroke-width:2.4"/></symbol>
+  <symbol id="t-my" viewBox="0 0 24 24"><circle cx="12" cy="8.2" r="4"/><path d="M4.6 20.4c.7-3.9 3.7-6.2 7.4-6.2s6.7 2.3 7.4 6.2z"/></symbol>
+  <!-- misc -->
+  <symbol id="i-avatar" viewBox="0 0 24 24"><circle cx="12" cy="9.6" r="4.4"/><path d="M2.8 24c.6-5.2 4.3-8.6 9.2-8.6s8.6 3.4 9.2 8.6z"/></symbol>
+  <symbol id="i-carrot" viewBox="0 0 48 48"><path d="M22.6 14.2c3.4-2.9 9.4-2.6 12 .9 2.6 3.4 1.9 8.2-1.3 10.8L14.4 39c-2.6 1.8-5.8-1-4.4-3.8z" fill="#ff6600"/><path d="M17.6 25.4l3 2.1M14.4 30.6l2.6 1.8M22.2 19.6l2.8 2" stroke="#e14d00" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M32.4 14.6c.8-4.6 3.6-7.4 8.2-7.6-.6 4.8-3.6 7.4-8.2 7.6z" fill="#2fb36b"/><path d="M33 15.4c3.8-1.8 7.6-1.4 10 1.4-3.6 1.8-7.4 1.6-10-1.4z" fill="#1e9e5a"/><path d="M31.6 14.4c-1.6-3.6-.8-7.2 2.2-9.4 1.4 3.6.6 7.2-2.2 9.4z" fill="#3cc47a"/></symbol>
+  <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m14.5 5-7 7 7 7"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 14.5V3.8M8.2 7.4 12 3.6l3.8 3.8"/><path d="M8.5 10.5H7a1.5 1.5 0 0 0-1.5 1.5v7A1.5 1.5 0 0 0 7 20.5h10a1.5 1.5 0 0 0 1.5-1.5v-7a1.5 1.5 0 0 0-1.5-1.5h-1.5"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><circle cx="12" cy="5.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="18.5" r="1.5" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5.5 21V4.5M5.5 4.8c4.5-2.4 8 2.4 13 0v9c-5 2.4-8.5-2.4-13 0"/></symbol>
+  <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3.5 12S6.6 6 12 6s8.5 6 8.5 6-3.1 6-8.5 6-8.5-6-8.5-6z"/><circle cx="12" cy="12" r="2.6"/><path d="M4.5 4.5l15 15"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10.2 13.8a3.6 3.6 0 0 0 5.1 0l3.2-3.2a3.6 3.6 0 0 0-5.1-5.1l-1.3 1.3"/><path d="M13.8 10.2a3.6 3.6 0 0 0-5.1 0l-3.2 3.2a3.6 3.6 0 0 0 5.1 5.1l1.3-1.3"/></symbol>
+  <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8.6 14a4 4 0 0 0 6.8 0"/><path d="M9.2 9.8h.01M14.8 9.8h.01" stroke-width="2.6"/></symbol>
+  <symbol id="i-comment" viewBox="0 0 24 24"><path d="M5.5 5h13A1.5 1.5 0 0 1 20 6.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17A1.5 1.5 0 0 1 4 15.5v-9A1.5 1.5 0 0 1 5.5 5z"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M4 20l1-4.5L15.8 4.7a1.8 1.8 0 0 1 2.5 0l1 1a1.8 1.8 0 0 1 0 2.5L8.5 19z"/><path d="M13.6 6.9l3.5 3.5"/></symbol>
+  <symbol id="i-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.6a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.1-2.4 3.6M12 17h.01"/></symbol>
+  <symbol id="i-bowl" viewBox="0 0 24 24"><path d="M3.5 11.5h17a8.5 8.5 0 0 1-17 0zM8 7.5c0-1.5 1-1.5 1-3M12 7.5c0-1.5 1-1.5 1-3M16 7.5c0-1.5 1-1.5 1-3"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2.5v2.5H14zM17.5 17.5H20V20h-2.5zM14 19.5h1M19.5 14v1"/></symbol>
+  <symbol id="i-detail" viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M4 12.5h16M8 16h5"/></symbol>
+</svg>
+
+<div class="stage">
+
+  <!-- ═══ Desktop intro card ═════════════════════════════════════════ -->
+  <aside class="intro" aria-label="프로젝트 안내">
+    <div class="intro__card">
+      <div class="intro__brand">
+        <svg class="intro__logo" aria-hidden="true"><use href="#i-carrot"/></svg>
+        <div>
+          <p class="intro__eyebrow">Pure HTML &amp; CSS</p>
+          <h1 class="intro__title">당근 앱 UI 클론</h1>
+        </div>
+      </div>
+      <p class="intro__desc">JavaScript 없이 HTML과 CSS만으로 만든 모바일 앱 UI예요. 오른쪽 화면을 직접 스크롤하고 눌러 보세요.</p>
+      <ul class="intro__stats">
+        <li><strong>0</strong><span>JavaScript</span></li>
+        <li><strong>4</strong><span>화면</span></li>
+        <li><strong>0</strong><span>외부 이미지</span></li>
+      </ul>
+
+      <h2 class="intro__heading">화면</h2>
+      <nav class="intro__nav">
+        <a class="intro__link" href="index.html">
+          <span class="intro__link-icon"><svg class="icon icon--20"><use href="#t-home"/></svg></span>
+          <span class="intro__link-text"><strong>홈 피드</strong><span>동네 선택 · 카테고리 필터 · 글쓰기 메뉴</span></span>
+          <svg class="icon icon--20"><use href="#i-chevron-right"/></svg>
+        </a>
+        <a class="intro__link" href="detail.html">
+          <span class="intro__link-icon"><svg class="icon icon--20"><use href="#i-detail"/></svg></span>
+          <span class="intro__link-text"><strong>상품 상세</strong><span>스와이프 캐러셀 · 매너온도 · 찜 하트</span></span>
+          <svg class="icon icon--20"><use href="#i-chevron-right"/></svg>
+        </a>
+        <a class="intro__link" href="chat.html">
+          <span class="intro__link-icon"><svg class="icon icon--20"><use href="#t-chat"/></svg></span>
+          <span class="intro__link-text"><strong>채팅</strong><span>판매·구매·안 읽음 필터 · 배너 닫기</span></span>
+          <svg class="icon icon--20"><use href="#i-chevron-right"/></svg>
+        </a>
+        <a class="intro__link" href="neighborhood.html" aria-current="page">
+          <span class="intro__link-icon"><svg class="icon icon--20"><use href="#t-town"/></svg></span>
+          <span class="intro__link-text"><strong>동네생활</strong><span>주제 필터 · 공감 토글</span></span>
+          <svg class="icon icon--20"><use href="#i-chevron-right"/></svg>
+        </a>
+      </nav>
+
+      <h2 class="intro__heading">순수 CSS 인터랙션</h2>
+      <ul class="intro__tags">
+        <li><code>:checked</code> 동네 팝오버</li>
+        <li><code>radio</code> 필터 칩</li>
+        <li><code>:has()</code> 글쓰기 메뉴</li>
+        <li><code>scroll-snap</code> 캐러셀</li>
+        <li><code>scroll-timeline</code> 헤더</li>
+        <li><code>@keyframes</code> 하트 팝</li>
+        <li><code>&lt;details&gt;</code> 매너온도</li>
+        <li><code>checkbox</code> 토스트</li>
+      </ul>
+
+      <p class="intro__note">학습용 비공식 클론이에요. 당근(Daangn)과 무관하며 상업적으로 쓰지 않아요. 색·간격·반경 토큰은 SEED Design(Apache-2.0)을 참고했어요.</p>
+    </div>
+  </aside>
+
+  <!-- ═══ Device ═════════════════════════════════════════════════════ -->
+  <div class="device">
+    <div class="device__screen">
+      <div class="device__island" aria-hidden="true"></div>
+      <div class="statusbar" aria-hidden="true">
+        <span>9:41</span>
+        <span class="statusbar__icons">
+          <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+          <svg viewBox="0 0 16 12"><path d="M8 2.3c2.4 0 4.6.9 6.3 2.5l1.2-1.3A10.6 10.6 0 0 0 8 .5 10.6 10.6 0 0 0 .5 3.5l1.2 1.3A9 9 0 0 1 8 2.3zm0 3.6c1.4 0 2.7.5 3.7 1.4l1.2-1.3A7.2 7.2 0 0 0 8 4.1a7.2 7.2 0 0 0-4.9 1.9l1.2 1.3C5.3 6.4 6.6 5.9 8 5.9zm0 3.5c.5 0 1 .2 1.3.5L8 11.3 6.7 9.9c.3-.3.8-.5 1.3-.5z"/></svg>
+          <svg viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="20" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" opacity=".4"/></svg>
+        </span>
+      </div>
+
+      <div class="app app--town">
+        <div class="app__scroll">
+
+          <header class="top-nav top-nav--elevate">
+            <h1 class="top-nav__title">동네생활</h1>
+            <div class="top-nav__actions">
+              <label class="icon-btn" for="toast-soon" aria-label="검색"><svg class="icon"><use href="#i-search"/></svg></label>
+              <label class="icon-btn" for="toast-soon" aria-label="내 활동"><svg class="icon"><use href="#t-my"/></svg></label>
+              <label class="icon-btn" for="toast-soon" aria-label="알림"><svg class="icon"><use href="#i-bell"/></svg><span class="icon-btn__dot"></span></label>
+            </div>
+          </header>
+
+          <nav class="chips" aria-label="주제 필터">
+            <label class="chip"><input class="sr-only" type="radio" name="topic" value="all" checked>전체</label>
+            <label class="chip"><input class="sr-only" type="radio" name="topic" value="qna">동네질문</label>
+            <label class="chip"><input class="sr-only" type="radio" name="topic" value="food">맛집</label>
+            <label class="chip"><input class="sr-only" type="radio" name="topic" value="daily">일상</label>
+            <label class="chip"><input class="sr-only" type="radio" name="topic" value="lost">분실/실종</label>
+            <label class="chip"><input class="sr-only" type="radio" name="topic" value="news">사건사고</label>
+            <label class="chip"><input class="sr-only" type="radio" name="topic" value="hobby">취미</label>
+          </nav>
+
+          <aside class="banner banner--orange" aria-label="안내">
+            <span class="banner__emoji" aria-hidden="true">👋</span>
+            <p class="banner__text"><strong>역삼동 이웃 2,341명</strong>이 동네생활 중이에요.<br>첫 인사를 남겨 보세요!</p>
+            <label class="icon-btn banner__close" aria-label="안내 닫기"><input type="checkbox" class="sr-only"><svg class="icon icon--20"><use href="#i-close"/></svg></label>
+          </aside>
+
+          <div class="divider divider--thick"></div>
+
+          <div class="posts">
+
+            <article class="post" data-topic="qna">
+              <span class="badge badge--neutral">동네질문</span>
+              <div class="post__main">
+                <div class="post__text">
+                  <h2 class="post__title">역삼동 근처 주말에도 여는 소아과 있을까요?</h2>
+                  <p class="post__excerpt">아이가 새벽부터 열이 나서요. 토요일 오후에도 진료하는 곳 아시는 분 계시면 공유 부탁드려요 🙏 대기 짧은 곳이면 더 좋아요.</p>
+                </div>
+              </div>
+              <p class="post__meta">역삼동 · 8분 전 · 조회 214</p>
+              <div class="post__actions">
+                <label class="reaction"><input type="checkbox" class="sr-only"><svg class="icon icon--20"><use href="#i-smile"/></svg><span class="reaction__off">공감하기</span><span class="reaction__on">공감 1</span></label>
+                <label class="reaction" for="toast-soon"><svg class="icon icon--20"><use href="#i-comment"/></svg>댓글 12</label>
+              </div>
+            </article>
+
+            <article class="post" data-topic="food">
+              <span class="badge badge--neutral">맛집</span>
+              <div class="post__main">
+                <div class="post__text">
+                  <h2 class="post__title">테헤란로 뒷골목에 칼국수집 새로 생겼는데 진짜 맛있어요</h2>
+                  <p class="post__excerpt">바지락 칼국수 9,000원인데 양이 엄청 많고 김치를 직접 담그신대요. 점심엔 웨이팅 10분 정도 있었어요. 보리밥은 무한리필!</p>
+                </div>
+                <span class="post__thumb"><img src="assets/posts/n01-noodle.svg" alt="바지락 칼국수 사진" width="72" height="72"></span>
+              </div>
+              <p class="post__meta">역삼동 · 32분 전 · 조회 1,028</p>
+              <div class="post__actions">
+                <label class="reaction"><input type="checkbox" class="sr-only"><svg class="icon icon--20"><use href="#i-smile"/></svg><span class="reaction__off">공감 48</span><span class="reaction__on">공감 49</span></label>
+                <label class="reaction" for="toast-soon"><svg class="icon icon--20"><use href="#i-comment"/></svg>댓글 23</label>
+              </div>
+            </article>
+
+            <article class="post" data-topic="lost">
+              <span class="badge badge--critical">분실/실종</span>
+              <div class="post__main">
+                <div class="post__text">
+                  <h2 class="post__title">치즈냥이를 찾습니다 (역삼2동 주민센터 부근)</h2>
+                  <p class="post__excerpt">어제 저녁 9시쯤 현관문 열린 틈에 나갔어요. 노란 줄무늬에 하늘색 목줄을 하고 있어요. 겁이 많아서 숨어 있을 수 있어요. 보시면 꼭 연락 부탁드려요.</p>
+                </div>
+                <span class="post__thumb"><img src="assets/posts/n02-cat.svg" alt="노란 줄무늬 고양이 사진" width="72" height="72"></span>
+              </div>
+              <p class="post__meta">역삼동 · 1시간 전 · 조회 3,412</p>
+              <div class="post__actions">
+                <label class="reaction"><input type="checkbox" class="sr-only"><svg class="icon icon--20"><use href="#i-smile"/></svg><span class="reaction__off">공감 120</span><span class="reaction__on">공감 121</span></label>
+                <label class="reaction" for="toast-soon"><svg class="icon icon--20"><use href="#i-comment"/></svg>댓글 45</label>
+              </div>
+            </article>
+
+            <article class="post" data-topic="daily">
+              <span class="badge badge--neutral">일상</span>
+              <div class="post__main">
+                <div class="post__text">
+                  <h2 class="post__title">오늘 선릉 공원 노을 정말 예뻤네요</h2>
+                  <p class="post__excerpt">퇴근길에 잠깐 들렀는데 하늘이 분홍색이었어요. 다들 오늘 하루 고생 많으셨어요 🌇</p>
+                </div>
+                <span class="post__thumb"><img src="assets/posts/n03-sunset.svg" alt="도심 노을 사진" width="72" height="72"></span>
+              </div>
+              <p class="post__meta">대치동 · 2시간 전 · 조회 687</p>
+              <div class="post__actions">
+                <label class="reaction"><input type="checkbox" class="sr-only"><svg class="icon icon--20"><use href="#i-smile"/></svg><span class="reaction__off">공감 76</span><span class="reaction__on">공감 77</span></label>
+                <label class="reaction" for="toast-soon"><svg class="icon icon--20"><use href="#i-comment"/></svg>댓글 9</label>
+              </div>
+            </article>
+
+            <article class="post" data-topic="news">
+              <span class="badge badge--info">사건사고</span>
+              <div class="post__main">
+                <div class="post__text">
+                  <h2 class="post__title">역삼역 사거리 공사 때문에 버스 정류장이 임시로 옮겨졌어요</h2>
+                  <p class="post__excerpt">강남역 방면 정류장이 약 50m 뒤 GS25 앞으로 이동했어요. 12월 15일까지래요. 출근길에 헤매지 마세요!</p>
+                </div>
+              </div>
+              <p class="post__meta">역삼동 · 3시간 전 · 조회 2,105</p>
+              <div class="post__actions">
+                <label class="reaction"><input type="checkbox" class="sr-only"><svg class="icon icon--20"><use href="#i-smile"/></svg><span class="reaction__off">공감 54</span><span class="reaction__on">공감 55</span></label>
+                <label class="reaction" for="toast-soon"><svg class="icon icon--20"><use href="#i-comment"/></svg>댓글 17</label>
+              </div>
+            </article>
+
+            <article class="post" data-topic="hobby">
+              <span class="badge badge--neutral">취미</span>
+              <div class="post__main">
+                <div class="post__text">
+                  <h2 class="post__title">주말 아침 양재천 러닝 같이 하실 분 🏃</h2>
+                  <p class="post__excerpt">토요일 아침 7시, 5km 정도 천천히 뛰어요. 초보도 환영이에요. 끝나고 근처 카페에서 커피 한 잔 해요.</p>
+                </div>
+              </div>
+              <p class="post__meta">도곡동 · 5시간 전 · 조회 412</p>
+              <div class="post__actions">
+                <label class="reaction"><input type="checkbox" class="sr-only"><svg class="icon icon--20"><use href="#i-smile"/></svg><span class="reaction__off">공감 23</span><span class="reaction__on">공감 24</span></label>
+                <label class="reaction" for="toast-soon"><svg class="icon icon--20"><use href="#i-comment"/></svg>댓글 31</label>
+              </div>
+            </article>
+
+            <article class="post" data-topic="qna">
+              <span class="badge badge--neutral">동네질문</span>
+              <div class="post__main">
+                <div class="post__text">
+                  <h2 class="post__title">분리수거 요일이 바뀌었나요?</h2>
+                  <p class="post__excerpt">원래 화·목이었던 것 같은데 오늘 아침에 수거를 안 해 갔더라고요. 혹시 공지 보신 분 계실까요?</p>
+                </div>
+              </div>
+              <p class="post__meta">역삼동 · 어제 · 조회 356</p>
+              <div class="post__actions">
+                <label class="reaction"><input type="checkbox" class="sr-only"><svg class="icon icon--20"><use href="#i-smile"/></svg><span class="reaction__off">공감 6</span><span class="reaction__on">공감 7</span></label>
+                <label class="reaction" for="toast-soon"><svg class="icon icon--20"><use href="#i-comment"/></svg>댓글 8</label>
+              </div>
+            </article>
+
+            <article class="post" data-topic="food">
+              <span class="badge badge--neutral">맛집</span>
+              <div class="post__main">
+                <div class="post__text">
+                  <h2 class="post__title">소금빵 맛있는 동네 빵집 추천해 주세요!</h2>
+                  <p class="post__excerpt">이사 온 지 일주일 됐어요. 버터 향 진한 소금빵 좋아하는데, 아침 일찍 여는 곳이면 더 좋아요 🥐</p>
+                </div>
+              </div>
+              <p class="post__meta">역삼동 · 2일 전 · 조회 941</p>
+              <div class="post__actions">
+                <label class="reaction"><input type="checkbox" class="sr-only"><svg class="icon icon--20"><use href="#i-smile"/></svg><span class="reaction__off">공감 15</span><span class="reaction__on">공감 16</span></label>
+                <label class="reaction" for="toast-soon"><svg class="icon icon--20"><use href="#i-comment"/></svg>댓글 27</label>
+              </div>
+            </article>
+
+          </div>
+          <p class="end-note">이웃들의 이야기를 모두 봤어요 🥕</p>
+        </div>
+
+        <label class="backdrop backdrop--fab" for="fab-toggle" aria-label="글쓰기 메뉴 닫기"></label>
+        <div class="fab">
+          <div class="fab__menu" role="menu" aria-label="주제 선택">
+            <label class="fab__item" for="toast-soon" role="menuitem"><svg class="icon"><use href="#i-question"/></svg>동네질문</label>
+            <label class="fab__item" for="toast-soon" role="menuitem"><svg class="icon"><use href="#i-bowl"/></svg>맛집 추천</label>
+            <label class="fab__item" for="toast-soon" role="menuitem"><svg class="icon"><use href="#i-pencil"/></svg>일상 이야기</label>
+            <label class="fab__item" for="toast-soon" role="menuitem"><svg class="icon"><use href="#i-pin"/></svg>분실/실종 신고</label>
+          </div>
+          <label class="fab__btn" aria-label="글쓰기">
+            <input type="checkbox" id="fab-toggle" class="sr-only fab__toggle">
+            <svg class="icon icon--20"><use href="#i-plus"/></svg><span class="fab__label">글쓰기</span>
+          </label>
+        </div>
+
+        <input type="checkbox" id="toast-soon" class="sr-only toast-trigger" tabindex="-1">
+        <div class="toast" role="status"><svg class="icon icon--20"><use href="#i-sparkle"/></svg>데모에서 준비 중인 기능이에요</div>
+
+        <nav class="tabbar" aria-label="하단 메뉴">
+          <a class="tabbar__item" href="index.html"><span class="tabbar__icon"><svg class="icon"><use href="#t-home"/></svg></span>홈</a>
+          <a class="tabbar__item" href="neighborhood.html" aria-current="page"><span class="tabbar__icon"><svg class="icon"><use href="#t-town"/></svg></span>동네생활</a>
+          <label class="tabbar__item" for="toast-soon"><span class="tabbar__icon"><svg class="icon"><use href="#t-near"/></svg></span>내 근처</label>
+          <a class="tabbar__item" href="chat.html"><span class="tabbar__icon"><svg class="icon"><use href="#t-chat"/></svg><span class="n-badge tabbar__badge">7</span></span>채팅</a>
+          <label class="tabbar__item" for="toast-soon"><span class="tabbar__icon"><svg class="icon"><use href="#t-my"/></svg></span>나의 당근</label>
+        </nav>
+      </div>
+
+      <div class="device__home" aria-hidden="true"></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

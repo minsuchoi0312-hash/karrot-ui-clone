@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2f5ee"/><stop offset="1" stop-color="#e2e9da"/></linearGradient>
+    <linearGradient id="pot" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c8693f"/><stop offset=".45" stop-color="#df8456"/><stop offset="1" stop-color="#b35a33"/></linearGradient>
+    <linearGradient id="leafA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4fa863"/><stop offset="1" stop-color="#2c7a45"/></linearGradient>
+    <linearGradient id="leafB" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5cb56e"/><stop offset="1" stop-color="#2f8049"/></linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="8"/></filter>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <rect y="318" width="400" height="82" fill="#d8ccb9"/>
+  <path d="M0 318h400" stroke="#c6b8a2" stroke-width="2"/>
+  <ellipse cx="200" cy="356" rx="92" ry="12" fill="#3c2c1c" opacity=".3" filter="url(#blur)"/>
+  <!-- stems -->
+  <g stroke="#3f8a53" stroke-width="5" stroke-linecap="round" fill="none">
+    <path d="M200 262c-6-50-40-90-80-110"/>
+    <path d="M200 262c4-60 30-110 74-140"/>
+    <path d="M200 262c0-70-6-130-14-170"/>
+    <path d="M200 262c10-30 40-50 84-48"/>
+  </g>
+  <!-- leaves with fenestrations -->
+  <g>
+    <path d="M70 150c10-40 60-60 96-38 20 14 18 48-6 64-32 22-96 16-90-26z" fill="url(#leafA)"/>
+    <path d="M96 140l40 12M92 160l46 4M108 178l34-10" stroke="#f2f5ee" stroke-width="6" stroke-linecap="round"/>
+    <path d="M226 106c22-46 92-56 118-20 16 24-6 58-38 66-40 10-96-6-80-46z" fill="url(#leafB)"/>
+    <path d="M262 92l12 30M292 86l0 36M318 98l-14 30" stroke="#f2f5ee" stroke-width="6" stroke-linecap="round"/>
+    <path d="M150 74c4-36 50-54 76-30 18 18 6 50-20 60-28 10-60 0-56-30z" fill="url(#leafA)"/>
+    <path d="M170 64l24 22M196 52l2 34" stroke="#f2f5ee" stroke-width="5.5" stroke-linecap="round"/>
+    <path d="M262 196c20-28 80-24 92 6 8 22-20 40-46 38-30-2-60-18-46-44z" fill="url(#leafB)"/>
+    <path d="M290 192l8 26M318 192l-6 28" stroke="#f2f5ee" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <!-- pot -->
+  <path d="M136 256h128l-14 98a10 10 0 0 1-10 8h-80a10 10 0 0 1-10-8z" fill="url(#pot)"/>
+  <rect x="128" y="246" width="144" height="22" rx="6" fill="#d77a4c"/>
+  <rect x="128" y="246" width="144" height="6" rx="3" fill="#e9976b"/>
+  <path d="M152 282c30 6 66 6 96 0" stroke="#f0a07a" stroke-width="3" fill="none" opacity=".6"/>
+</svg>

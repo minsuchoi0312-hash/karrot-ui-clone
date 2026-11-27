@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe6f2"/><stop offset="1" stop-color="#eaf3e6"/></linearGradient>
+    <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fc77f"/><stop offset="1" stop-color="#7aa95c"/></linearGradient>
+    <linearGradient id="fabric" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4c5a3c"/><stop offset="1" stop-color="#36412b"/></linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <rect width="400" height="400" fill="url(#sky)"/>
+  <path d="M0 220c60-40 120-30 180-10s140 10 220-30v220H0z" fill="#b9d6a3" opacity=".7"/>
+  <path d="M0 250c80-20 160-10 230 0s120-6 170-14v164H0z" fill="url(#grass)"/>
+  <path d="M30 120l30-50 30 50zM70 130l24-40 24 40z" fill="#6c9a5b" opacity=".55"/>
+  <ellipse cx="200" cy="334" rx="130" ry="12" fill="#2e4122" opacity=".35" filter="url(#blur)"/>
+  <!-- frame legs -->
+  <g stroke="#2c2f33" stroke-width="7" stroke-linecap="round">
+    <path d="M120 330l150-120M280 330L130 210"/>
+    <path d="M118 330h20M262 330h20"/>
+  </g>
+  <!-- seat + back -->
+  <path d="M112 196c30 30 146 30 176 0l-6 54c-28 22-136 22-164 0z" fill="url(#fabric)"/>
+  <path d="M128 96c26-10 118-10 144 0l14 106c-30 26-142 26-172 0z" fill="url(#fabric)"/>
+  <path d="M136 112c24-8 104-8 128 0" stroke="#5d6b4b" stroke-width="3" fill="none"/>
+  <path d="M200 100v100" stroke="#2c331f" stroke-width="2" opacity=".5"/>
+  <!-- armrests -->
+  <g fill="#c9853f">
+    <rect x="86" y="176" width="58" height="12" rx="6"/>
+    <rect x="256" y="176" width="58" height="12" rx="6"/>
+  </g>
+  <path d="M100 188v24M300 188v24" stroke="#2c2f33" stroke-width="6" stroke-linecap="round"/>
+  <!-- mug -->
+  <rect x="292" y="160" width="18" height="16" rx="3" fill="#e9eef0"/>
+  <path d="M310 164c6 0 6 8 0 8" stroke="#e9eef0" stroke-width="3" fill="none"/>
+</svg>
